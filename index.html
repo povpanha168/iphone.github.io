@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+  <body>
+    <nav>
+        <div id="navbar">
+            <div id="navbar-logo">
+                <i class="bi bi-apple"></i>
+                <span>Apple</span>
+            </div>
+            <div id="navbar-links">
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Products</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                </ul>
+                <button class="nav-button">
+                    Contact Us
+                </button>
+            </div>
+            <i class="bi bi-search"></i>
+            <i class="bi bi-bag"></i>
+        </div>
+        <div>
+            <ul class="none">
+                <li></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="slides-container">
+        <button class="slide-button" id="prev-button">
+            <svg xmlns="https://www.apple.com/iphone/" width="40" height="40" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+            </svg>
+        </button>
+        <div id="slides-wrapper">
+
+            <!-- phone 1 -->
+            <div class="slide active">
+                <img src="img/iPhone-15-Pro-and-Max-1.jpg" alt="iphone 15 pro Max">
+
+                <div class="darker-slide">
+                    <div class="slide-content">
+                        <h1>
+                            iPhone 15 Pro Max - Tech Specs
+                        </h1>
+
+                        <p>
+                            Need a moment?
+                            Keep all your selections by saving this device to Your Saves,
+                            <br> then come back anytime and pick up right where you left off.
+                        </p>
+
+                        <div class="button-wrapper">
+                            <button class="button-1">
+                                Learn More
+                            </button>
+                            <button class="button-2">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- phone 1 -->
+
+            <!-- phone 2 -->
+            <div class="slide">
+                <img src="img/iphone-14-pro-and-max.jpeg" alt="Iphone14 pro Max">
+
+                <div class="darker-slide">
+                    <div class="slide-content">
+                        <h1>
+                            iPhone 14 Pro Max - Tech Specs
+                        </h1>
+
+                        <p>
+                            Need a moment?
+                            Keep all your selections by saving this device to Your Saves,
+                            <br>then come back anytime and pick up right where you left off.
+                        </p>
+
+                        <div class="button-wrapper">
+                            <button class="button-1">
+                                Learn More
+                            </button>
+                            <button class="button-2">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="slide">
+                <img src="img/Apple-iPhone13-Pro-.jpg" alt="iphone 13 mini">
+
+                <div class="darker-slide">
+                    <div class="slide-content">
+                        <h1>
+                            iPhone 13 Pro Max - Tech Specs
+                        </h1>
+
+                        <p>
+                            Need a moment?
+                            Keep all your selections by saving this device to Your Saves,
+                            <br>then come back anytime and pick up right where you left off.
+                        </p>
+
+                        <div class="button-wrapper">
+                            <button class="button-1">
+                                Learn More
+                            </button>
+                            <button class="button-2">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- phone3 -->
+
+            <div class="slider-icons-container">
+                <span class="slider-icon active"></span>
+                <span class="slider-icon"></span>
+                <span class="slider-icon"></span>
+            </div>
+        </div>
+        <button class="slide-button" id="next-button">
+            <svg xmlns="https://www.apple.com/iphone/" width="40" height="40" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+            </svg>
+        </button>
+    </div>
+
+    <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                const slides = document.querySelectorAll('.slide');
+                const prevButton = document.querySelector('#prev-button');
+                const nextButton = document.querySelector('#next-button');
+                const sliderIcons = document.querySelectorAll('.slider-icon');
+
+                let pos = 0;
+                let oldPos = 0;
+
+                prevButton.addEventListener('click', () => {
+                    oldPos = pos
+                    pos = (pos <= 0) ? slides.length - 1 : pos - 1
+
+                    updateSlider()
+                })
+
+                nextButton.addEventListener('click', () => {
+                    oldPos = pos
+                    pos = (pos >= slides.length - 1) ? 0 : pos + 1
+
+                    updateSlider()
+                })
+
+                function updateSlider() {
+                    [slides[oldPos], sliderIcons[oldPos]].forEach(el => {el.classList.remove('active')});
+                    [slides[pos], sliderIcons[pos]].forEach(el => {el.classList.add('active')});
+                }
+            })
+
+    </script>
+  </body>
+</html>
